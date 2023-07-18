@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button type="button" th:onclick="|location.href='@{/InsertEmp}'|">insert</button>
+	<table>
+		<thead>
+			<tr>
+				<th>employeeId</th>
+				<th>firstName</th>
+				<th>jobId</th>
+				<th>hireDate</th>
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:each="empInfo:${empList}">
+				<tr
+					th:onclick="|location.href='@{/empInfo(employeeId=${empInfo.employeeId})}'|">
+					<td th:text="${empInfo.employeeId}" />
+					<td th:text="${empInfo.firstName}" />
+					<td>[[ ${empInfo.jobId}]]</td>
+					<td>[[ ${#dates.format(empInfo.hireDate,'YYYY년MM월dd잃ㅎ')}]]</td>
+
+				</tr>
+			</th:block>
+		</tbody>
+	</table>
+</body>
+</html>
+<!-- 					[[thymleaf문법임을 나타내줌]] 
+					#은 내장객체 불러오는 것 |안의 내용이 완성되면 해석됨|
+					등록은 절대경로로 해라. 어느 페이지에서건 같은 페이지를 요청하기때문-->

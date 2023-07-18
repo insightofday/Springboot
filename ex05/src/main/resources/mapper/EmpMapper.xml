@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehe.app.emp.mapper.EmpMapper">
+	<select id="selectAll" resultType="EmpVO">
+		select* from employees
+		order by employee_id desc
+	</select>
+
+	<select id="selectEmpInfo" resultType="EmpVO">
+		select* from employees
+		where employee_id=#{employeeId}
+	</select>
+	
+	<insert id="insertEmpInfo" parameterType="EmpVO">
+		insert into employees(
+		employee_id
+		,last_name
+		,email
+		,hire_date
+		,job_id
+		)
+		values(
+		#{employeeId}
+		,#{lastName}
+		,#{email}
+		,#{hireDate}
+		,#{jobId}
+		)
+	</insert>
+</mapper>

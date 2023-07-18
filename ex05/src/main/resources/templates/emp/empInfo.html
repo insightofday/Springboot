@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<label id="empId">empId</label> <input type="text" id="empId" th:value=${empInfo.employeeId} readonly>
+		<label id="ename">name</label> <input type="text" id="ename"  th:value=${empInfo.firstName} >
+		<label id="email">email</label> <input type="text" id="email"  th:value=${empInfo.email}>
+		<label id="hiredate">hiredate</label> <input type="text" id="hiredate"  th:value=${#dates.format(empInfo.hireDate,'YYYY/MM/dd')}>
+		<label id="job">jobId</label> <input type="text" id="job"  th:value=${empInfo.jobId}>
+	</div>
+	<div>
+		<button type="button" th:onclick="|location.href='@{/empList}'|">list</button>
+	</div>
+</body>
+</html>

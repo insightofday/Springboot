@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/InsertEmp}" method="post" th:object=${empVO}>
+		<label id="empId">empId</label> <input type="text" id="empId" th:field="*{employeeId}">
+		<label id="ename">name</label> <input type="text" id="ename" th:field="*{lastName}">
+		<label id="email">email</label> <input type="text" id="email" th:field="*{email}">
+		<label id="hiredate">hiredate</label> <input type="text" id="hiredate" th:field="*{hireDate}">
+		<label id="job">jobId</label> <input type="text" id="job" th:field="*{jobId}">
+		<button type="submit">submit</button>
+		<button type="button" th:onclick="|location.href='@{/empList}'|">list</button>
+	</form>
+</body>
+</html>
